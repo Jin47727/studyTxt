@@ -1,0 +1,26 @@
+Git命令:
+初始化一个git仓库: git init
+把文件添加到仓库:
+	git add **  ( 可反复多次使用,添加多个文件)
+	git commit -m   ""   (-m后面输入的是本次提交的说明)
+查看当前仓库状态: git status  (在提交之前用)
+产看具体修改的内容: git diff **   (在提交之前用)
+查看操作日志: git log      粗略列表:git log --pretty=oneline
+版本回退:git reset --hard "版本号"      (不管之前还是之后,有版本号就行)
+记录每一次命令: git reflog
+后悔药:
+	没add前:git checkout -- **.txt
+	add后但没commit:git reset HEAD **.txt   然后用上面那步.
+删除文件:
+	工作区: rm **.txt
+		后悔:git checkout -- **.txt   (其实是用版本库里的版本替换工作区的版					本，无论工作区是修改还是删除)
+	确认删除仓库的:git rm **.txt    然后 git commit -m **
+
+远程仓库:
+	创建SSH Key:ssh-keygen -t rsa -C "youremail@example.com"  (一直enter,创建在主用户目录的.ssh中,把公用的放到GitHub中)
+	在github中建仓库:
+	 git remote add origin git@github.com：Jin47727/test.git  (不能有空格)
+	 git push -u origin master    (在github上就看到本地一样了,第一次用-u)
+提交到远程仓库:git push origin master	
+克隆远程仓库到本地:
+	git clone git@github.com:Jin47727/testclone.git (后面是仓库地址,本地打开git的地址就是目的地)
