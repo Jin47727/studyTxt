@@ -55,11 +55,22 @@ Git命令:
 	5.多人协作
 	查看远程仓库信息：git remote  （-v  详细）
 	推送分支：git push origin master   （或者其他分支）
-	从远程抓取分支：git pull
+	从远程抓取分支：git pull origin master
 	在本地创建和远程分支对应的分支：git checkout -b ** origin/**
 	建立本地分支和远程分支的关联:git branch --set-upstream ** origin/**
 
 	标签管理：
-	1.
+	1.创建标签
+	新建标签:git tag v1.0   (打在当前位置)
+	查看标签:git tag
+	新建标签在commit id上:git tag (commit id)
+	查看某标签信息:git show **
+	带注释标签:git tag -a v0.1 -m "**" 1094adb
+	2.操作标签
+	删除标签:git tag -d v1.0
+	删除远程标签:git push origin :refs/tags/v0.9
+	推送标签到远程:git push origin **   (--tags:全部推送)
+
+
 
 
