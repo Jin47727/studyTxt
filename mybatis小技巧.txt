@@ -1,0 +1,50 @@
+1.Mybatis 在 insert 之后想获取自增的主键 id
+<insert id="add"
+        useGeneratedKeys="true" keyColumn="id" keyProperty="id"
+        parameterType="user">
+    INSERT INTO `user` (`name`,sex,register_ts) VALUES (#{name},#{sex},#{registerTs})
+</insert>
+　　返回的插入成功的行数；自增id直接映射到你的对象里了，直接输出 xxx.getId()就可以了
+
+2. 下面就是MyBatis中的if....else...表示方法
+<choose>
+    <when test="">
+        //...
+    </when>
+    <otherwise>
+        //...
+    </otherwise>
+</choose>
+
+3.<!--批量插入用户-->(使用循环,以及前后缀处理)
+<insert id="insertBusinessUserList" parameterType="java.util.List">
+    insert into `business_user` (`id` , `user_type` , `user_login` )
+    values
+    <foreach collection="list" index="index" item="item" separator=",">
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <choose>
+                <when test="item.id != null and item.id !=''">
+                    #{item.id,jdbcType=CHAR},
+                </when>
+                <otherwise>
+                    '',
+                </otherwise>
+            </choose>
+            <choose>
+                <when test="item.userType != null and item.userType !=''">
+                    #{item.userType,jdbcType=VARCHAR},
+                </when>
+                <otherwise>
+                    '',
+                </otherwise>
+            </choose>
+        </trim>
+    </foreach>
+</insert>
+
+4.mybatis查询的时候，需要用到运算符 小于号：< 和  大于号： >，在mybatis配置文件里面，这种会被认为是标签，所以解析错误.
+用 <![CDATA[  ]]> 把 加括号 包裹起来,就不解析
+
+5.mybatis联查中,2个表中有相同字段.查询就报错摸棱两可.
+方法一:换字段名
+方法二:配置<result column="screate_time"  property="create_time" />
