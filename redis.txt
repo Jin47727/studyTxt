@@ -1,0 +1,37 @@
+查看进程:  
+	全部查询:  ps aux
+	具体查询:  ps aux | grep redis
+启动:
+	前端启动: ./redis-server
+	后台启动: ./redis-server redis.conf   
+		(通过着配置文件启动,使用配置文件:daemonzie  yes)
+	查看连接状态:  ping  相应PONG
+停止:
+	redis-cli shutdown
+	kill -9 端口号
+客户端:
+	启动:  ./redis-cli
+	操作:set a 10    
+	多级目录存储:  set  a:b:c  ***  (存在a目录下的b目录下的key为a:b:c)c)   
+	获取值:get a    get  a "ddfd"(先获取a的值,在设a值为**)   
+	增加一个值:incr a   减少一个值:decr a
+	删除: del  a        
+	查看所有key:  keys *     keys  my?   (查询my开头的,后接一个字符
+					*:任意一个或多个,,?:任意一个) 
+	设置有限期(秒):  expire a 10
+	查看有效期:ttl  a   (-1:没超时,,-2:已超时)
+	判断是否存在:  exists  key  (1存在,0不存在) 
+	重命名:  rename  key  newkey       
+	退出客户端:quit
+	返回数据库中key的数量:dbsize
+	获取服务器信息统计: info
+	删除当前库中所有key: flushdb
+	删除所有数据库中的key: flushall
+redis数据库概念:
+	redis有16个数据库,下标0-15.默认连接0号数据库.
+	select * :可选择数据库
+	move  key  *  :移动key到某个库
+redis事务:
+	开启事务: multi
+	提交事务:  exec
+	事务回滚:  discard
