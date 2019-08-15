@@ -1,4 +1,4 @@
-1.Mybatis 在 insert 之后想获取自增的主键 id
+﻿1.Mybatis 在 insert 之后想获取自增的主键 id
 <insert id="add"
         useGeneratedKeys="true" keyColumn="id" keyProperty="id"
         parameterType="user">
@@ -48,3 +48,13 @@
 5.mybatis联查中,2个表中有相同字段.查询就报错摸棱两可.
 方法一:换字段名
 方法二:配置<result column="screate_time"  property="create_time" />
+
+6.查询想要的结果
+	where  left(电话字段,4)="5600";  where  right(电话字段,4)="5600";
+    理解:查询"电话字段",最左(右)边的"4"个字符 = 制定的字符串
+    应用场景:查询时间为整点的数据,让时间字符串的最右边5个字符串等于"00:00"
+
+7.A,B两表结构相同,把A数据导入B中
+      	insert into b
+	select * from a where id not in (select id from b)
+      理解:2个子查询.  插入b表(查询a表数据(条件为b表中id不冲突的))

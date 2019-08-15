@@ -1,0 +1,52 @@
+				第一天
+1.初识html
+	HTML 指的是超文本标记语言,作用就是用标记标签来描述网页，把网页内容在浏览器中展示出来。
+	快捷生成html结构,前提后缀是html :  html:5(!)--tab补全
+2.HTML标签分类
+	1.双标签
+		<标签名> 内容 </标签名>
+	2.单标签
+		<标签名 />  自封闭,不太多
+	3.标题标签
+		单词缩写：  head   头部. 标题     title  文档标题
+
+为了使网页更具有语义化，我们经常会在页面中用到标题标签，HTML提供了6个等级的标题，即<h1>、<h2>、<h3>、<h4>、<h5>和<h6>
+
+
+
+				第二天
+1.表格
+	<table>
+		<caption>表格标题</caption>
+		<tr></tr> 行
+		<th></th> 表头
+		<td></td> 表格子
+	</table>
+	合并单元格:
+		跨行合并:rowspan   跨列合并:colspan
+		合并顺序:从上到下,从左到右 
+2.inpit控件
+	type--text,password,radio(单选),checkbox(多选),button,
+			  submit,reset(重置),image,file
+	name:名字
+	value:值
+	checked:选中
+	maxlength:控件允许输入的最多字符数
+3.label 标签
+	绑定一个单元元素,点击label标签的时候,被绑定的表单元素就会获得输入焦点
+	使用:(1).直接包裹元素
+		 (2).<label for="目标id">名字</label>
+		 	 <input type="text" id="**">
+4.textarea 控件
+	用户输入大量的文字
+	<textarea cols="每行的字符数" rows="显示的行数">
+		文本内容
+	</textarea>
+5.下拉菜单
+	<select>
+		<option value="" select="选中">选项一</option>
+	</select>
+6.表单域
+	<form action="url" method="" name="">
+		各种表单控件
+	</form>
