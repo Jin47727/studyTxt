@@ -1,0 +1,6 @@
+1.json数据
+	JSONObject js = new JSONObject();
+说明:如果其中填入的数据,有顺序要求,就达不到要的效果.JSONObject内部是用Hashmap来存储的，所以输出是按key的ASCII码排序来的，如果要让JSONObject按固定顺序（put的顺序）排列，可以修改JSONObject的定义HashMap改为LinkedHashMap。
+解决:
+JSONObject jsonObj = new JSONObject(new LinkedHashMap());
+JSONObject jsonObj = new JSONObject(true);

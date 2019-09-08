@@ -58,3 +58,5 @@
       	insert into b
 	select * from a where id not in (select id from b)
       理解:2个子查询.  插入b表(查询a表数据(条件为b表中id不冲突的))
+8.mysql的左连接与右连接
+    
